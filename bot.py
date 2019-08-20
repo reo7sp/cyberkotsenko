@@ -1,4 +1,6 @@
 # from generator import Generator
+import logging
+
 import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 from os import environ
@@ -33,6 +35,8 @@ def write_msg(api, user_id, message):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(message)s (%(filename)s:%(lineno)d)')
+
     try:
         token = environ['API_KEY']
     except:
